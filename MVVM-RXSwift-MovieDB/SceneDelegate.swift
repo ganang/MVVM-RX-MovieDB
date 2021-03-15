@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navController: UINavigationController = UINavigationController()
         let window = UIWindow(windowScene: windowScene)
         
-        navController.viewControllers = [MovieListViewController()]
+        navController.viewControllers = [HomeViewController()]
         
         window.rootViewController = navController
         self.window = window
