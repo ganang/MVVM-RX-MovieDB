@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		A437250325FF3B94001565C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A437250225FF3B94001565C5 /* AppDelegate.swift */; };
 		A437250525FF3B94001565C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A437250425FF3B94001565C5 /* SceneDelegate.swift */; };
-		A437250725FF3B94001565C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A437250625FF3B94001565C5 /* ViewController.swift */; };
-		A437250A25FF3B94001565C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A437250825FF3B94001565C5 /* Main.storyboard */; };
+		A437250725FF3B94001565C5 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A437250625FF3B94001565C5 /* MovieListViewController.swift */; };
 		A437250C25FF3B94001565C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A437250B25FF3B94001565C5 /* Assets.xcassets */; };
 		A437250F25FF3B94001565C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A437250D25FF3B94001565C5 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -19,8 +18,7 @@
 		A43724FF25FF3B94001565C5 /* MVVM-RXSwift-MovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MVVM-RXSwift-MovieDB.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A437250225FF3B94001565C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A437250425FF3B94001565C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A437250625FF3B94001565C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A437250925FF3B94001565C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A437250625FF3B94001565C5 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		A437250B25FF3B94001565C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A437250E25FF3B94001565C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A437251025FF3B94001565C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +54,22 @@
 		A437250125FF3B94001565C5 /* MVVM-RXSwift-MovieDB */ = {
 			isa = PBXGroup;
 			children = (
+				A437251825FF3C1D001565C5 /* View Controllers */,
 				A437250225FF3B94001565C5 /* AppDelegate.swift */,
 				A437250425FF3B94001565C5 /* SceneDelegate.swift */,
-				A437250625FF3B94001565C5 /* ViewController.swift */,
-				A437250825FF3B94001565C5 /* Main.storyboard */,
 				A437250B25FF3B94001565C5 /* Assets.xcassets */,
 				A437250D25FF3B94001565C5 /* LaunchScreen.storyboard */,
 				A437251025FF3B94001565C5 /* Info.plist */,
 			);
 			path = "MVVM-RXSwift-MovieDB";
+			sourceTree = "<group>";
+		};
+		A437251825FF3C1D001565C5 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A437250625FF3B94001565C5 /* MovieListViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +131,6 @@
 			files = (
 				A437250F25FF3B94001565C5 /* LaunchScreen.storyboard in Resources */,
 				A437250C25FF3B94001565C5 /* Assets.xcassets in Resources */,
-				A437250A25FF3B94001565C5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A437250725FF3B94001565C5 /* ViewController.swift in Sources */,
+				A437250725FF3B94001565C5 /* MovieListViewController.swift in Sources */,
 				A437250325FF3B94001565C5 /* AppDelegate.swift in Sources */,
 				A437250525FF3B94001565C5 /* SceneDelegate.swift in Sources */,
 			);
@@ -146,14 +150,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A437250825FF3B94001565C5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A437250925FF3B94001565C5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A437250D25FF3B94001565C5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
