@@ -22,8 +22,12 @@ struct MovieViewViewModel {
         self.movie = movie
     }
     
+    var releaseDate: String {
+        return movie.releaseDate
+    }
+    
     var title: String {
-        return movie.title
+        return movie.title + " (\(releaseDate.prefix(4)))"
     }
     
     var overview: String {
@@ -32,10 +36,6 @@ struct MovieViewViewModel {
     
     var posterURL: URL {
         return movie.posterURL
-    }
-    
-    var releaseDate: String {
-        return movie.releaseDate
     }
     
     var rating: String {

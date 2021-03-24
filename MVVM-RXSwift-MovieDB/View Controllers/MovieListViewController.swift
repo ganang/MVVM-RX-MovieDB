@@ -33,6 +33,23 @@ class MovieListViewController: UIViewController {
         return tableView
     }()
     
+    let activityIndicatorView: UIActivityIndicatorView = {
+        let activityIndicatorView = UIActivityIndicatorView()
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicatorView.style = .large
+        
+        return activityIndicatorView
+    }()
+    
+    let infoLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .boldSystemFont(ofSize: 14)
+        label.textAlignment = .center
+        
+        return label
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
@@ -57,13 +74,15 @@ class MovieListViewController: UIViewController {
     func configureTableView() {
         movieTableView.tableFooterView = UIView()
         movieTableView.rowHeight = UITableView.automaticDimension
-        movieTableView.estimatedRowHeight = 100
+        movieTableView.estimatedRowHeight = 120
         movieTableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.reuseIdentifier)
     }
     
     func configureInterfaceComponent() {
         view.addSubview(movieSegmentedControl)
         view.addSubview(movieTableView)
+        view.addSubview(activityIndicatorView)
+        view.addSubview(infoLabel)
     }
     
     func configureConstraint() {
@@ -75,6 +94,14 @@ class MovieListViewController: UIViewController {
         movieTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8).isActive = true
         movieTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
         movieTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 8).isActive = true
+        
+        activityIndicatorView.topAnchor.constraint(equalTo: movieSegmentedControl.bottomAnchor, constant: 48).isActive = true
+        activityIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        infoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        infoLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        infoLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32).isActive = true
+        infoLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32).isActive = true
     }
     
 }
@@ -93,13 +120,13 @@ extension MovieListViewController {
             self.movieTableView.reloadData()
         }).disposed(by: disposeBag)
         
-//        movieListViewViewModel.isFetching.drive(activityIndicatorView.rx.isAnimating)
-//            .disposed(by: disposeBag)
-//        
-//        movieListViewViewModel.error.drive(onNext: {[unowned self] (error) in
-//            self.infoLabel.isHidden = !self.movieListViewViewModel.hasError
-//            self.infoLabel.text = error
-//        }).disposed(by: disposeBag)
+        movieListViewViewModel.isFetching.drive(activityIndicatorView.rx.isAnimating)
+            .disposed(by: disposeBag)
+        
+        movieListViewViewModel.error.drive(onNext: {[unowned self] (error) in
+            self.infoLabel.isHidden = !self.movieListViewViewModel.hasError
+            self.infoLabel.text = "Sorry something error, please try again"
+        }).disposed(by: disposeBag)
     }
 }
 
@@ -114,7 +141,7 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.reuseIdentifier, for: indexPath) as! MovieCell
         
         if let viewModel = movieListViewViewModel.viewModelForMovie(at: indexPath.row) {
-            print(viewModel.title)
+            cell.configure(viewModel: viewModel)
         }
                 
         return cell

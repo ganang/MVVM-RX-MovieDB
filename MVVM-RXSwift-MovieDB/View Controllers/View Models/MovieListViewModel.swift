@@ -16,9 +16,9 @@ class MovieListViewViewModel {
     
     init(endpoint: Driver<MovieEndPoint>, movieService: MovieService) {
         self.movieService = movieService
-        endpoint
-            .drive(onNext: { [weak self] (endpoint) in
-                self?.fetchMovies(endpoint: endpoint)
+        
+        endpoint.drive(onNext: { [weak self] (endpoint) in
+            self?.fetchMovies(endpoint: endpoint)
         }).disposed(by: disposeBag)
     }
     
