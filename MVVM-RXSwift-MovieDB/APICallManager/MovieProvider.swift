@@ -27,15 +27,7 @@ public class MovieProvider: MovieService {
         return jsonDecoder
     }()
     
-    func getPopularMovies(endpoint: MovieEndPoint, params: [String : Any]?, onSuccess: @escaping (MovieResponse) -> Void, onError: @escaping (Error) -> Void) {
-        self.handleRequest(requestedObjectType: MovieResponse.self, method: "GET", endpoint: "/movie/\(endpoint.rawValue)", params: params, onSuccess: onSuccess, onError: onError)
-    }
-    
-    func getTopRatedMovies(endpoint: MovieEndPoint, params: [String : Any]?, onSuccess: @escaping (MovieResponse) -> Void, onError: @escaping (Error) -> Void) {
-        self.handleRequest(requestedObjectType: MovieResponse.self, method: "GET", endpoint: "/movie/\(endpoint.rawValue)", params: params, onSuccess: onSuccess, onError: onError)
-    }
-    
-    func getNowPlayingMovies(endpoint: MovieEndPoint, params: [String : Any]?, onSuccess: @escaping (MovieResponse) -> Void, onError: @escaping (Error) -> Void) {
+    func getMovies(endpoint: MovieEndPoint, params: [String : Any]?, onSuccess: @escaping (MovieResponse) -> Void, onError: @escaping (Error) -> Void) {
         self.handleRequest(requestedObjectType: MovieResponse.self, method: "GET", endpoint: "/movie/\(endpoint.rawValue)", params: params, onSuccess: onSuccess, onError: onError)
     }
     
